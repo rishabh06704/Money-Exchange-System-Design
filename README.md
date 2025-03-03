@@ -23,6 +23,8 @@ The architecture is designed for **scalability, security, and compliance**, cons
 - **Data Storage Layer:** Relational database storing **user profiles, transactions, exchange rates, and statistics**.
 - **External Integrations:** Fetching **real-time exchange rates** and validating customers against the **OFAC database**.
 
+---
+
 ### **High-Level System Architecture Diagram**
 
 ```mermaid
@@ -54,24 +56,6 @@ graph TD;
     LOGS -.->|Records system activity| TransactionsTable
     REP -.->|Generates insights| TransactionsTable
 ```
-
-
-## **Business Logic**
-The business logic ensures **secure and efficient** currency exchange operations:
-- **Dynamic Exchange Rate Retrieval:** Fetches updated rates and applies a configurable commission.
-- **Transaction Processing:** Applies **real-time currency conversion** with detailed calculations.
-- **Regulatory Compliance:** Implements **OFAC screening and KYC verification** before approving exchanges.
-- **Transaction Auditing & Reporting:** Logs and archives **daily and monthly financial transactions**.
-
----
-## **Design Decisions**
-Key architectural and design choices for **scalability and security:**
-- **RBAC Implementation:** Restricts system access based on user roles.
-- **Database Normalization:** Ensures data consistency and eliminates redundancy.
-- **Separation of Concerns:** Divides responsibilities into authentication, business logic, and storage layers.
-- **Compliance Integration:** Incorporates external APIs for **OFAC checks and real-time exchange rates**.
-
----
 ## **System Workflow**
 The **Money Exchange System** operates through a structured workflow:
 1. **User Authentication:** Admins, Managers, and Exchange Agents log in with secure credentials.
@@ -82,6 +66,7 @@ The **Money Exchange System** operates through a structured workflow:
 4. **Transaction Storage & Reporting:**
    - Transactions are logged into the database.
    - Admins generate daily/monthly reports for financial auditing.
+     
 ---
 
 ## **Use Case Diagram**
@@ -91,6 +76,61 @@ The **Use Case Diagram** highlights how the system interacts with different **us
 
 
 ---
+
+
+## **Business Logic & Compliance**
+The **Money Exchange System (MEXS)** ensures **secure, accurate, and compliant** currency exchange operations. The system follows strict **regulatory standards** while efficiently processing financial transactions.
+
+### ** Transaction Processing**
+- **Dynamic Exchange Rate Retrieval:**  
+  - The system fetches the latest exchange rates from an **external API** before processing transactions.
+  - A configurable **commission rate** is applied to determine the final exchange amount.
+  
+- **Currency Exchange Calculation:**  
+  - Computes the **final amount** using the formula:  
+    \[
+    \text{Final Amount} = (\text{Exchange Rate} \times \text{Original Amount}) - \text{Commission}
+    \]
+  - Ensures accuracy with proper **rounding mechanisms** based on the currency's decimal precision.
+
+- **Multi-Method Payment Processing:**  
+  - Customers can complete transactions using **cash, credit card, or checks**.
+  - The system tracks transaction **timestamps**, amounts, and payment methods.
+
+### ** Regulatory Compliance Enforcement**
+- **KYC (Know Your Customer) & Identity Verification:**  
+  - Customers must present valid identification (**Passport, Driving License, National ID**) before initiating a transaction.
+  - System **validates customer details** against stored records.
+
+- **OFAC Sanction List Check:**  
+  - Every customer is **screened in real time** against the **Office of Foreign Assets Control (OFAC) list** to ensure compliance.
+  - Transactions are **blocked automatically** if a match is found.
+
+- **Fraud Prevention Mechanisms:**  
+  - Detects **suspicious transactions** (e.g., unusually large exchanges, multiple rapid transactions).
+  - Logs flagged transactions for **further review** by compliance officers.
+
+### ** Transaction Auditing & Reporting**
+- **Daily and Monthly Reports:**  
+  - Admins generate reports showing **total transactions, exchanged amounts, commission earned, and flagged transactions**.
+  - Reports help in **financial tracking and compliance audits**.
+
+- **Secure Data Storage:**  
+  - All **transactions and customer data** are stored securely in an **encrypted database**.
+  - Follows **data retention policies** for auditability.
+
+---
+
+## **Design Decisions**
+Key architectural and design choices for **scalability and security:**
+- **RBAC Implementation:** Restricts system access based on user roles.
+- **Database Normalization:** Ensures data consistency and eliminates redundancy.
+- **Separation of Concerns:** Divides responsibilities into authentication, business logic, and storage layers.
+- **Compliance Integration:** Incorporates external APIs for **OFAC checks and real-time exchange rates**.
+
+---
+
+
 
 ## **Class Diagram**
 
@@ -519,12 +559,12 @@ sequenceDiagram
 
 ---
 
-## **Business Logic and Compliance**
 
-- **Real-Time Exchange Rate Retrieval:** Fetches updated exchange rates and applies a configurable commission.
-- **Transaction Processing:** Ensures **accurate calculations** for exchanged amounts based on currency and region.
-- **OFAC & KYC Compliance:** Verifies **customer identity and financial status** before allowing transactions.
-- **Historical Data Storage:** Archives **previous exchange rates and transactions** for reporting and analysis.
+## **Future Enhancements**
+
+- **Multi-Currency Support**: Enhancing exchange calculations for multi-currency transactions.
+- **Fraud Detection Mechanism**: Implementing AI-driven fraud detection in compliance with global financial regulations.
+- **Automated Exchange Rate Updates**: Real-time integration with global exchange rate providers.
 
 ---
 
@@ -546,12 +586,4 @@ money-exchange-system-design/
 ```
 
 ---
-
-## **Future Enhancements**
-
-- **Multi-Currency Support**: Enhancing exchange calculations for multi-currency transactions.
-- **Fraud Detection Mechanism**: Implementing AI-driven fraud detection in compliance with global financial regulations.
-- **Automated Exchange Rate Updates**: Real-time integration with global exchange rate providers.
-
-
 
