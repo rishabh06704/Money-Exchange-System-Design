@@ -25,8 +25,63 @@ The architecture is designed for **scalability, security, and compliance**, cons
 
 ### **High-Level System Architecture Diagram**
 
+```mermaid
+graph TD;
+    
+    subgraph Users
+        A[Admin] -->|Login| S[System]
+        B[Manager] -->|Login| S
+        C[Exchange Agent] -->|Login| S
+    end
+
+    subgraph System Components
+        S[Currency Exchange System] -->|Validates| DB[(Database)]
+        S -->|Fetches Rates| API[Exchange Rate API]
+        S -->|Checks Compliance| OFAC[OFAC Compliance API]
+        S -->|Logs Transactions| LOGS[Audit Logging]
+        S -->|Generates Reports| REP[Reporting Module]
+    end
+
+    subgraph Data Storage
+        DB -.->|Stores| UsersTable[(Users Table)]
+        DB -.->|Stores| TransactionsTable[(Transactions Table)]
+        DB -.->|Stores| RatesTable[(Exchange Rates Table)]
+        DB -.->|Stores| ComplianceTable[(KYC Compliance)]
+    end
+
+    API -.->|Fetches real-time rates| RatesTable
+    OFAC -.->|Verifies user compliance| ComplianceTable
+    LOGS -.->|Records system activity| TransactionsTable
+    REP -.->|Generates insights| TransactionsTable
+```
 
 
+## **Business Logic**
+The business logic ensures **secure and efficient** currency exchange operations:
+- **Dynamic Exchange Rate Retrieval:** Fetches updated rates and applies a configurable commission.
+- **Transaction Processing:** Applies **real-time currency conversion** with detailed calculations.
+- **Regulatory Compliance:** Implements **OFAC screening and KYC verification** before approving exchanges.
+- **Transaction Auditing & Reporting:** Logs and archives **daily and monthly financial transactions**.
+
+---
+## **Design Decisions**
+Key architectural and design choices for **scalability and security:**
+- **RBAC Implementation:** Restricts system access based on user roles.
+- **Database Normalization:** Ensures data consistency and eliminates redundancy.
+- **Separation of Concerns:** Divides responsibilities into authentication, business logic, and storage layers.
+- **Compliance Integration:** Incorporates external APIs for **OFAC checks and real-time exchange rates**.
+
+---
+## **System Workflow**
+The **Money Exchange System** operates through a structured workflow:
+1. **User Authentication:** Admins, Managers, and Exchange Agents log in with secure credentials.
+2. **Customer Registration & Verification:** Customer details are validated, and KYC/OFAC checks are performed.
+3. **Currency Exchange Processing:**
+   - Retrieves current exchange rate and commission.
+   - Computes the final amount and records the transaction.
+4. **Transaction Storage & Reporting:**
+   - Transactions are logged into the database.
+   - Admins generate daily/monthly reports for financial auditing.
 ---
 
 ## **Use Case Diagram**
@@ -479,17 +534,15 @@ sequenceDiagram
 money-exchange-system-design/
 │
 ├── README.md                       # Comprehensive project overview and documentation
-├── diagrams/                        # UML diagrams and architectural designs
-│   ├── use-case-diagram.mmd         # Mermaid file for Use Case Diagram
-│   ├── class-diagram.mmd            # Mermaid file for Class Diagram
-│   ├── sequence-diagram.mmd         # Mermaid file for Sequence Diagram
-│   ├── architecture-diagram.png     # High-level system architecture overview
-│   ├── expanded-sequence.png        # Additional sequence diagram for profile creation
-└── docs/                            # Additional documentation and analysis
-    ├── requirements.md              # Functional and Non-Functional Requirements
-    ├── design-decisions.md          # Architectural choices and design patterns
-    ├── business-logic.md            # Business rules, data flow, and compliance
-    ├── system-workflow.md           # Step-by-step explanation of key processes
+├── diagrams/                       # UML diagrams and architectural designs
+│   ├── use-case-diagram.png        # file for Use Case Diagram
+│   ├── class-diagram.md            # Mermaid file for Class Diagram
+│   ├── design-class-diagram.md     # Mermaid file for Design Class Diagram
+│   ├── architecture-diagram.png    # High-level system architecture overview
+│   ├── expanded-sequence.png       # Additional sequence diagram for profile creation
+└── docs/                           # Additional documentation and analysis
+    ├── project-report.pdf          # Detailed report
+   
 ```
 
 ---
