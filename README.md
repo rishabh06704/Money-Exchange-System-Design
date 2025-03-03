@@ -181,11 +181,35 @@ classDiagram
     Customer "1" -- "1" Profile
 ```
 
+**Class Model Definitions**
+
+- **PersonalInfo:** Represents a person’s country information.
+-**Profile:** Links customers to various forms of identification (Passport, DrivingLicense, NationalID).
+-**Identification:** Abstract class representing different identification forms, characterized by ID number, issue date, and expiry date.
+-**Passport:** Subclass of Identification, details issuing country.
+-**DrivingLicense:** Subclass of Identification, includes issuing state and license class.
+-**NationalID:** Subclass of Identification, includes issuing authority.
+-**CurrencyExchange:** Represents transaction details of currency exchanges, including amount, exchange rate, commission, timestamp, and transaction ID.
+-**Currency:** Represents different currencies with attributes like name, symbol, ISO code, and decimal places.
+-**Rate:** Base class for ExchangeRate and CommissionRate, capturing the effective date.
+-**ExchangeRate:** Subclass of Rate, storing currency exchange rates.
+-**CommissionRate:** Subclass of Rate, storing commission values.
+-**ExchangeRateArchive:** Keeps historical exchange rate records.
+-**ExchangeRateHistory:** Stores past exchange rate data with timestamps.
+-**Statistics:** Captures exchange volume and transaction count by country.
+-**DailyStatistics:** Subclass of Statistics, records daily transactions.
+-**MonthlyStatistics:** Subclass of Statistics, records monthly transactions.
+-**Country:** Represents a country with name, alpha-2/3 codes, and region.
+-**ExchangeLocation:** Stores exchange office details like name, address, and phone number.
+-**Transaction:** Represents the method used for a currency exchange transaction.
+
+---
+
 ## **Design Class Diagram**
 
 The **Design Class Diagram** expands upon the Class Diagram by incorporating methods, relationships, and detailed behaviors of each class, ensuring a clear implementation structure.
 
-
+![Design Class Diagram](./diagrams/design-class-diagram.jpg)
 
 ---
 
