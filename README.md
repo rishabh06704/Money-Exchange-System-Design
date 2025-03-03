@@ -559,6 +559,13 @@ sequenceDiagram
 
 ---
 
+## **Database Schema Diagram**
+
+The **Database Schema** illustrates the relational structure used to store **users, transactions, exchange rates, and compliance data**.
+
+![Database Schema](./diagrams/database-schema.jpg)
+
+---
 
 ## **Future Enhancements**
 
