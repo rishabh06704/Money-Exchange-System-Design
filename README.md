@@ -573,15 +573,14 @@ sequenceDiagram
 ```plaintext
 money-exchange-system-design/
 │
-├── README.md                       # Comprehensive project overview and documentation
-├── diagrams/                       # UML diagrams and architectural designs
-│   ├── use-case-diagram.png        # file for Use Case Diagram
-│   ├── class-diagram.md            # Mermaid file for Class Diagram
-│   ├── design-class-diagram.md     # Mermaid file for Design Class Diagram
-│   ├── architecture-diagram.png    # High-level system architecture overview
-│   ├── expanded-sequence.png       # Additional sequence diagram for profile creation
-└── docs/                           # Additional documentation and analysis
-    ├── project-report.pdf          # Detailed report
+├── README.md                               # project  documentation
+├── diagrams/                               # UML diagrams and architectural designs
+│   ├── use-case-diagram.png                # file for Use Case Diagram
+│   ├── class-diagram.md                    # Mermaid file for Class Diagram
+│   ├── design-class-diagram.md             # Mermaid file for Design Class Diagram
+│   ├── system-architecture-overview.md     # High-level system architecture overview
+└── docs/                                   # Additional documentation and analysis
+    ├── project-report.pdf                  # Detailed report
    
 ```
 
