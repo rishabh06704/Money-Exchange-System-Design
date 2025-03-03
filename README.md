@@ -209,7 +209,7 @@ classDiagram
 
 The **Design Class Diagram** expands upon the Class Diagram by incorporating methods, relationships, and detailed behaviors of each class, ensuring a clear implementation structure.
 
-![Design Class Diagram](./diagrams/design-class-diagram.jpg)
+![Design Class Diagram](./diagrams/design-class-diagram.md)
 
 ---
 
