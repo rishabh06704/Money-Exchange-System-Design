@@ -28,7 +28,7 @@ The architecture is designed for **scalability, security, and compliance**, cons
 
 ### **High-Level System Architecture Diagram**
 
-![system-architecture-overview](./diagrams/sytem-architecture-overview.png)
+![system-architecture-overview](./diagrams/system-architecture-overview.png)
 
 ## **System Workflow**
 The **Money Exchange System** operates through a structured workflow:
