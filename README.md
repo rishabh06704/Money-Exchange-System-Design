@@ -426,7 +426,16 @@ classDiagram
     Profile "1" -- "1" Identification
     Customer "1" -- "1" Profile
 ```
-
+### **Design Class Model Enhancements:**
+- **Encapsulation of Attributes:** Getter and setter methods for controlled data access.
+- **Inheritance & Polymorphism:** Parent classes like `Identification` extend into subclasses like `Passport`, `DrivingLicense`, and `NationalID`.
+- **Composition and Associations:**
+  - `Customer` **has-a** `Profile`, which **has-a** `Identification`.
+  - `CurrencyExchange` **has-a** `ExchangeLocation` and involves `SourceCurrency` & `TargetCurrency`.
+- **Transaction Methods:**
+  - `calculateFinalAmount()` – Computes the final amount after commission.
+  - `validateIdentification()` – Ensures uniqueness and compliance.
+  - `generateReport()` – Aggregates statistics on daily/monthly transactions.
 ---
 
 ## **Sequence Diagram**
