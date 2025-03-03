@@ -3,7 +3,7 @@
 
 ## **Project Overview**
 
-The **Money Exchange System (MEXS)** is a **financial transaction system** designed for international airports, enabling secure and compliant currency exchanges. This project focuses solely on **system design**, covering architectural decisions, business logic, and UML diagrams.
+The Money Exchange System (MEXS) is a financial transaction system designed for international airports, enabling secure and compliant currency exchanges. This project focuses solely on system design, covering architectural decisions, business logic, and UML diagrams.This system design project was developed as part of the Information Systems Analysis and Design course (INFO 620). It is a group effort by a team of 5, focusing on a comprehensive Money Exchange System (MEXS) for international currency exchanges.
 
 ## **System Objectives**
 
@@ -32,23 +32,8 @@ The architecture is designed for **scalability, security, and compliance**, cons
 ## **Use Case Diagram**
 
 The **Use Case Diagram** highlights how the system interacts with different **users and external services**.
+![Use-Case-Diagram](./diagrams/use-case-diagram.png)
 
-```mermaid
-graph TD;
-    A[Currency Exchange Agent] -->|CE1| B[Calculate Final Amount];
-    A -->|CE2| C[Register User];
-    C -->|extends| C1[Find Existing User];
-    C -->|extends| C2[Scan Passport or National ID or License];
-    A -->|CE5| D[Process Transaction - Cash or Card or Check];
-    A -->|CE6| E[Void Transaction];
-    A -->|CE7| F[Generate Reports];
-    F -->|extends| G[Search & Filter Transactions];
-    A -->|CE8| H[View Transaction History];
-    B -->|includes| I[Retrieve Current Exchange Rate];
-    B -->|includes| J[Retrieve Commission];
-    C -->|includes| K[Confirm Customer Details];
-    D -->|includes| L[Confirm Final Amount];
-```
 
 ---
 
