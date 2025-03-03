@@ -44,36 +44,148 @@ This **Class Diagram** illustrates the **object-oriented design** for the system
 ```mermaid
 classDiagram
     class Person {
-        +String name
-        +String passportNumber
+        name
+        passportNumber
     }
+
     class Customer {
-        +String contactDetails
-        +String nationality
+        passportIssuingCountry
+        email
+        phoneNumber
+        address
+        dateOfBirth
     }
+
+    class PersonalInfo {
+        country
+    }
+
     class Profile {
-        +String identificationType
-        +String issueDate
+        identification
     }
+
     class Identification {
-        +String ID_number
-        +Date expiryDate
+        idNumber
+        issueDate
+        expiryDate
     }
+
+    class Passport {
+        issuingCountry
+    }
+
+    class DrivingLicense {
+        issuingState
+        licenseClass
+    }
+
+    class NationalID {
+        issuingAuthority
+    }
+
     class CurrencyExchange {
-        +Double amount
-        +Double exchangeRate
-        +Double commission
+        amount
+        exchangeRate
+        commission
+        exchangeDateTime
+        transactionId
+        exchangeLocation
+        sourceCurrency
+        targetCurrency
+        commissionRate
+        methodOfTransaction
     }
+
+    class Currency {
+        name
+        symbol
+        isoCode
+        decimalPlaces
+    }
+
+    class Rate {
+        effectiveDate
+    }
+
+    class ExchangeRate {
+        rate
+    }
+
+    class CommissionRate {
+        rate
+    }
+
+    class ExchangeRateArchive {
+        historicalRates
+    }
+
+    class ExchangeRateHistory {
+        currency
+        exchangeRate
+        timestamp
+    }
+
+    class Statistics {
+        exchangeAmountByCountry
+        transactionCountByCountry
+    }
+
+    class DailyStatistics {
+        date
+    }
+
+    class MonthlyStatistics {
+        month
+        year
+    }
+
+    class Country {
+        name
+        alpha2Code
+        alpha3Code
+        region
+    }
+
+    class ExchangeLocation {
+        name
+        address
+        phoneNumber
+    }
+
     class Transaction {
-        +String method
-        +Date timestamp
+        method
     }
+
     Person <|-- Customer
-    Customer -- Profile
-    Profile <|-- Identification
-    Customer --> CurrencyExchange
-    CurrencyExchange --> Transaction
+    Person <|-- PersonalInfo
+    Rate <|-- ExchangeRate
+    Rate <|-- CommissionRate
+    Statistics <|-- DailyStatistics
+    Statistics <|-- MonthlyStatistics
+    Identification <|-- Passport
+    Identification <|-- DrivingLicense
+    Identification <|-- NationalID
+
+    Customer "1" -- "1..*" CurrencyExchange
+    CurrencyExchange "1..*" -- "2" Currency
+    CurrencyExchange "1..*" -- "1" ExchangeRate
+    CurrencyExchange "1..*" -- "1" CommissionRate
+    CurrencyExchange "1..*" -- "1" ExchangeLocation
+    CurrencyExchange "1" -- "1" Transaction
+    Currency "1..*" -- "1" Country
+    ExchangeRate "1..*" -- "1" ExchangeRateArchive
+    CurrencyExchange "1..*" -- "1" DailyStatistics
+    CurrencyExchange "1..*" -- "1" MonthlyStatistics
+    Currency "1" -- "1..*" ExchangeRateHistory
+    Profile "1" -- "1" Identification
+    Customer "1" -- "1" Profile
 ```
+
+## **Design Class Diagram**
+
+The **Design Class Diagram** expands upon the Class Diagram by incorporating methods, relationships, and detailed behaviors of each class, ensuring a clear implementation structure.
+
+
 
 ---
 
