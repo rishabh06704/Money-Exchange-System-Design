@@ -152,31 +152,14 @@ The **Design Class Diagram** expands upon the Class Diagram by incorporating met
   - `calculateFinalAmount()` – Computes the final amount after commission.
   - `validateIdentification()` – Ensures uniqueness and compliance.
   - `generateReport()` – Aggregates statistics on daily/monthly transactions.
+    
 ---
 
 ## **Sequence Diagram**
 
 The **Sequence Diagram** below demonstrates the **customer profile creation process**, including validation, uniqueness checks, and **OFAC compliance verification**.
 
-```mermaid
-sequenceDiagram
-    participant CEA as Currency Exchange Agent
-    participant CES as Currency Exchange System
-    participant OFAC as OFAC Database
-    participant DB as Database
-    CEA->>CES: Initiate user profile creation
-    CES->>CEA: Display input form
-    CEA->>CES: Enter customer details
-    CES->>DB: Validate mandatory fields
-    DB->>CES: Missing fields (if any)
-    CES->>CEA: Display error message
-    CEA->>CES: Confirm name & identification details
-    CES->>DB: Validate uniqueness
-    DB->>CES: Check for duplicate records
-    CES->>OFAC: Perform OFAC check
-    OFAC->>CES: Return check status
-    CES-->>CEA: Display success/error message
-```
+![Sequence Diagram](./diagrams/sequence-diagram.png)
 
 ---
 
