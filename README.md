@@ -201,7 +201,7 @@ money-exchange-system-design/
 
 ###Repository
 View the full repository and documentation on GitHub:  
-[GitHub Repository – VDMS Requirements Engineering](https://github.com/rishabh06704/Money-Exchange-System-Design)
+[GitHub Repository – Money-Exchange-System-Design](https://github.com/rishabh06704/Money-Exchange-System-Design)
 
 ---
 
